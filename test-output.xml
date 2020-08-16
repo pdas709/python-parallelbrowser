@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite errors="0" failures="1" hostname="de-public-qa-01" name="pytest" skipped="0" tests="2" time="32.506" timestamp="2020-05-28T12:07:30.104439"><testcase classname="tests.test_01_Add_certification_2949.TestCertificate" file="tests\test_01_Add_certification_2949.py" line="18" name="test_Add_Certification" time="19.182"></testcase><testcase classname="tests.test_01_Edit_Certification_2658.TestCertificate" file="tests\test_01_Edit_Certification_2658.py" line="16" name="test__Edit_Certification" time="11.774"><failure message="AttributeError: &apos;NoneType&apos; object has no attribute &apos;text&apos;">self = &lt;test_01_Edit_Certification_2658.TestCertificate object at 0x03F1EF70&gt;
+browser = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session=&quot;3387e57502e3fc9dce8e26b1abfd8b71&quot;)&gt;
+
+    def test__Edit_Certification(self,browser):
+      # Add Item to cart
+      Landing_Page = HugoLandingPage(browser)
+      Landing_Page.load()
+    
+    
+      # Getting current URL source code
+      get_title = browser.title
+    
+      # Verify the title of this URL
+      assert &quot;Hugo | Candidate&quot; in get_title
+    
+      Landing_Page.click_login_from_hugo()
+    
+    
+    
+      #Verify that user can find the login button
+    
+      try:
+        WebDriverWait(browser, 10).until(
+            EC.element_to_be_clickable((By.NAME, &apos;submit&apos;)))
+      except TimeoutException:
+        raise Exception(&apos;Unable to find text in this element after waiting 10 seconds&apos;)
+    
+      #Verify Page title of Hugo Login Page
+      get_title_again = browser.title
+    
+      assert &quot;Sign In with Auth0&quot; in get_title_again
+    
+    
+      #Proceed the actions of our Login page
+    
+      log_in_page = Login_Page(browser)
+      log_in_page.enter_email()
+      log_in_page.enter_password()
+      log_in_page.click_login_()
+    
+    
+    
+      #Verify an element to confirm user is logged in
+      try:
+&gt;       WebDriverWait(browser, 10).until(
+            EC.text_to_be_present_in_element((By.XPATH, &apos;//*[@id=&quot;root&quot;]/div/div/header/div/div[5]/button&apos;), &apos;logout&apos;))
+
+tests\test_01_Edit_Certification_2658.py:58: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\..\.virtualenvs\HUGO-WEB-AUTOMATION_19-05-2020-Hr607Za6\lib\site-packages\selenium\webdriver\support\wait.py:71: in until
+    value = method(self._driver)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;selenium.webdriver.support.expected_conditions.text_to_be_present_in_element object at 0x0433BF88&gt;
+driver = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session=&quot;3387e57502e3fc9dce8e26b1abfd8b71&quot;)&gt;
+
+    def __call__(self, driver):
+        try:
+&gt;           element_text = _find_element(driver, self.locator).text
+E           AttributeError: &apos;NoneType&apos; object has no attribute &apos;text&apos;
+
+..\..\.virtualenvs\HUGO-WEB-AUTOMATION_19-05-2020-Hr607Za6\lib\site-packages\selenium\webdriver\support\expected_conditions.py:209: AttributeError</failure></testcase></testsuite></testsuites>

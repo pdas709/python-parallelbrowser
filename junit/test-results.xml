@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite errors="1" failures="0" hostname="DESKTOP-PG52AUL" name="pytest" skipped="0" tests="1" time="1.080" timestamp="2020-05-15T08:57:42.970411"><testcase classname="" file="locators/locators.py" name="locators.locators" time="0.000"><error message="collection failure">C:\Users\gaurav.yadav\.virtualenvs\BBBAutomation-ZOPIPhor\lib\site-packages\py\_path\local.py:707: in pyimport
+    if modfile[-4:] in (&apos;.pyc&apos;, &apos;.pyo&apos;):
+E   TypeError: &apos;NoneType&apos; object is not subscriptable</error></testcase></testsuite></testsuites>
